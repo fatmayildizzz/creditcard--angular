@@ -1,0 +1,38 @@
+
+<div class="container">
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+
+    <app-input label="Name" [control]="cardForm.get('name')"></app-input>
+    <app-input label="Card Number" [control]="cardForm.get('cardNumber')"></app-input>
+    <div class="columns">
+        <div class="column">
+            <app-input label="Expiration Date" [control]="cardForm.get('expirationDate')"></app-input>
+        </div>
+        <div class="column">
+             <app-input label="Cvv Code" [control]="cardForm.get('cvvNumber')"></app-input>
+        </div>
+
+    </div>
+    <div class="buttons">
+         <button class="button is-warning" type="button" (click)="resetForm()">Clear</button>
+         <button class="button is-primary" [disabled]="cardForm.invalid" type="submit">Submit</button>
+    </div>
+   
+
+</form>
+</div>
+
+   
+
+
+
+   
+    
+    
+    <!-- <label for="expirationDate">Expiration Date</label>
+    <input type="date | date :  M/yy" id="expirationDate" formControlName="expirationDate" [(ngModel)]="payment.model.cardMonth" placeholder="Select Month">
+    <option [value]="null">Select</option>
+    <option *ngFor="let month of monthlist"
+    [value]="month.value">{{month.text}}</option>    -->
+
+

@@ -1,0 +1,29 @@
+<div class="field"> 
+    <label class="label" for="name">{{label}}</label><br>
+    <input  class="input" id="name" type="text" [formControl]="control" 
+    [ngClass]="{'is-danger':showErrors()}"><br>
+     <ng-container *ngIf="showErrors()">
+    <div class="help-is-danger" *ngIf="control.errors?.['required'] " >
+        Required Field
+    </div>
+    <div class="help-is-danger" *ngIf="control.errors?.['minlength']">
+       
+        Contains  {{control.errors?.['minlength']?.['actualLength']}} character. But the minimum 
+        {{control.errors?.['minlength']?.['requiredLength']}}
+        character must be included.
+
+    </div>
+    <div class="help-is-danger" *ngIf="control.errors?.['maxlength']">
+        
+        Contains {{control.errors?.['maxlength']?.['actualLength']}} character. But maximum
+        {{control.errors?.['maxlength']?.['requiredLength']}}
+        character must be included.
+
+    </div>
+
+    </ng-container> 
+
+</div>
+   
+
+    
